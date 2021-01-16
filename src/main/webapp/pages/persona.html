@@ -1,0 +1,57 @@
+<div class="app flex-row align-items-center">
+    <div class="container">
+        <div style="padding: 3em; background-color: #fff;">
+            <div class="row">
+                <h3>Administración Personas</h3>
+            </div>
+
+            <div class="row">
+                <button type="button" class="btn btn-primary" ng-click="mostrarModalAgregar()">
+                    <i class="icon-plus"></i> Crear
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>DNI</th>
+                                    <th>Correo</th>
+                                    <th>Fecha Nac.</th>
+                                    <th>Usuario Red</th>
+                                    <th>Fecha Baja</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="per in data.lstPersonas| filter:txtFiltro">
+                                    <td>{{per.nombres}}</td>
+                                    <td>{{per.apellidos}}</td>
+                                    <td>{{per.dni}}</td>
+                                    <td>{{per.correo}}</td>
+                                    <td>{{per.fechaNacimiento}}</td>
+                                    <td>{{per.usuarioRed}}</td>
+                                    <td>{{per.fechaBaja}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" ng-click="mostrarModalModificar(per)">
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs" ng-confirm-click="Esta seguro de eliminar a '{{per.nombres}}'?" confirmed-click="eliminarPersona(per.dni)">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

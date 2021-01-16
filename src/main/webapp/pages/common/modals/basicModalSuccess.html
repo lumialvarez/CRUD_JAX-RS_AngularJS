@@ -1,0 +1,10 @@
+<div class="modal-header modal-header-success">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">{{data.titulo}}</h4>
+</div>
+<div class="modal-body" ng-init="setFocus()">
+    <p>{{data.contenido}}</p>
+</div>
+<div class="modal-footer">
+    <button type="button" id="btn_cerrar"  class="btn btn-default" ng-click="cancel()">Cerrar</button>
+</div>

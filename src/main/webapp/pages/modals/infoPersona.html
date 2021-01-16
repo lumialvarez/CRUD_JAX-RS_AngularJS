@@ -1,0 +1,63 @@
+<form name="fromModalCtrl" ng-submit="save()">
+    <div class="modal-header modal-header-info">
+        <button type="button" class="close" ng-click="cancel()">&times;</button>
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">DNI</div>
+                <input type="text" class="form-control col-10" id="idni" ng-model="data.dni" placeholder="DNI" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Nombres</div>
+                <input type="text" class="form-control col-10" id="inombres" ng-model="data.nombres" placeholder="Nombre" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Apellidos</div>
+                <input type="text" class="form-control col-10" id="iapelldos" ng-model="data.apellidos" placeholder="Nombres" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Correo</div>
+                <input type="email" class="form-control col-10" id="icorreo" ng-model="data.correo" placeholder="Correo" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Fecha Nac.</div>
+                <input type="date" class="form-control col-10" id="ifechaNacimiento" ng-model="data.fechaNacimiento" placeholder="Fecha Nacimiento" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Usuario Red</div>
+                <input type="text" class="form-control col-10" id="iusuarioRed" ng-model="data.usuarioRed" placeholder="Usuario Red" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon col-2">Fecha Baja</div>
+                <input type="date" class="form-control col-10" id="ifechaBaja" ng-model="data.fechaBaja" placeholder="Fecha Baja">
+            </div>
+        </div>
+        
+        
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+    </div>
+</form>
