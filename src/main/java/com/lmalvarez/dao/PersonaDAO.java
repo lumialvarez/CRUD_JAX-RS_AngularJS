@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pruebatecnicatlmark.dao;
+package com.lmalvarez.dao;
 
-import com.pruebatecnicatlmark.model.Persona;
+import com.lmalvarez.model.Persona;
 import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.Connection;

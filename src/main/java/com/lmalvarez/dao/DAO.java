@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pruebatecnicatlmark.dao;
+package com.lmalvarez.dao;
 
-import com.pruebatecnicatlmark.utils.Propiedades;
+import com.lmalvarez.utils.Propiedades;
 import java.util.UUID;
 import org.sql2o.Connection;
+
 import org.sql2o.Sql2o;
 import org.sql2o.converters.UUIDConverter;
 import org.sql2o.quirks.PostgresQuirks;

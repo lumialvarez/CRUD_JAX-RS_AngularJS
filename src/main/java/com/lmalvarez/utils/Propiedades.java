@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pruebatecnicatlmark.utils;
+package com.lmalvarez.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

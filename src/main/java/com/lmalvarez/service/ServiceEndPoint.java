@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pruebatecnicatlmark.service;
+package com.lmalvarez.service;
 
-import com.pruebatecnicatlmark.dao.PersonaDAO;
-import com.pruebatecnicatlmark.model.Persona;
+import com.lmalvarez.dao.PersonaDAO;
+import com.lmalvarez.model.Persona;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -28,6 +28,7 @@ public class ServiceEndPoint {
 
     @GET
     public Response consultarPersonas() throws Exception {
+        System.out.println("consultarPersonas");
         List<Persona> lstPersonas = new ArrayList<>();
         lstPersonas.addAll(personaDAO.consultarPersonas());
         return Response.ok(lstPersonas).build();

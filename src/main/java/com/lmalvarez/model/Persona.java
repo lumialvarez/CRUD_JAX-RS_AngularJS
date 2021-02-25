@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pruebatecnicatlmark.model;
+package com.lmalvarez.model;
 
 import java.util.Date;
 
