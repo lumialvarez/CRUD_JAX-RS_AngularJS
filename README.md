@@ -1,7 +1,7 @@
 # CRUD JAX-RS AngularJS
 Ejemplo de crud usando java (JAX-RS) como backend y aplicacion en AngularJS como frontend.
 
-Compatible con JDK 1.8
+Funcional con JDK 11 y Tomcat 10
 
 Se usa una base de datos Postgres, se deja el SQL para crear la tabla:
 ```sql
