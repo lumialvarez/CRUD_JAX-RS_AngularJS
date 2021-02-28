@@ -14,10 +14,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$ocLazyLo
                         loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
                                 return $ocLazyLoad.load([{
                                         serie: true,
-                                        name: 'Font Awesome',
-                                        files: ['resources/css/font-awesome.min.css']
-                                    }, {
-                                        serie: true,
                                         name: 'Simple Line Icons',
                                         files: ['resources/css/simple-line-icons.css']
                                     }, {

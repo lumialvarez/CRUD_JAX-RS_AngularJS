@@ -28,7 +28,6 @@ public class ServiceEndPoint {
 
     @GET
     public Response consultarPersonas() throws Exception {
-        System.out.println("consultarPersonas");
         List<Persona> lstPersonas = new ArrayList<>();
         lstPersonas.addAll(personaDAO.consultarPersonas());
         return Response.ok(lstPersonas).build();

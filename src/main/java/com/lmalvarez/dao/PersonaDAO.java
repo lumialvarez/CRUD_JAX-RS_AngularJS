@@ -25,7 +25,7 @@ public class PersonaDAO {
         }
         return lstPersonas;
     }
-    
+
     public Persona consultarPersonaByDNI(String dni) throws Exception {
         Persona persona;
         try (Connection conn = DAO.getConnection()) {
@@ -37,7 +37,7 @@ public class PersonaDAO {
             query.addParameter("dni", dni);
             persona = query.executeAndFetchFirst(Persona.class);
         }
-        if(persona == null){
+        if (persona == null) {
             persona = new Persona();
         }
         return persona;
@@ -65,7 +65,7 @@ public class PersonaDAO {
             return query.bind(persona).executeUpdate().getResult() > 0;
         }
     }
-    
+
     public boolean eliminarPersona(String dni) throws Exception {
         try (Connection conn = DAO.getConnection()) {
             String sql = "DELETE FROM persona "

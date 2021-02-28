@@ -5,6 +5,7 @@
  */
 package com.lmalvarez.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
@@ -17,8 +18,10 @@ public class Persona {
     private String apellidos;
     private String dni;
     private String correo;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT-5")
     private Date fechaNacimiento;
     private String usuarioRed;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT-5")
     private Date fechaBaja;
 
     public Persona() {

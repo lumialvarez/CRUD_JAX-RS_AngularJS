@@ -6,12 +6,9 @@
 package com.lmalvarez.dao;
 
 import com.lmalvarez.utils.Propiedades;
-import java.util.UUID;
 import org.sql2o.Connection;
 
 import org.sql2o.Sql2o;
-import org.sql2o.converters.UUIDConverter;
-import org.sql2o.quirks.PostgresQuirks;
 
 
 public class DAO {
@@ -29,12 +26,7 @@ public class DAO {
         sql2o = new Sql2o(
                 urlConexion,
                 prop.get("db-user"),
-                prop.get("db-password"),
-                new PostgresQuirks() {
-            {
-                converters.put(UUID.class, new UUIDConverter());
-            }
-        }
+                prop.get("db-password")
         );
     }
 
