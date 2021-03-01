@@ -15,11 +15,7 @@ public class Propiedades {
     private InputStream input = null;
 
     public Propiedades() {
-        this.cargarPropiedades("../../WEB-INF/configuracion.properties");
-        if(prop == null || prop.isEmpty()){
-            System.out.println("-----------Load Default Properties---------");
-            this.cargarPropiedades("../../WEB-INF/default.properties");
-        }
+        this.cargarPropiedades("configuracion.properties");
     }
     
     private void cargarPropiedades(String ruta){

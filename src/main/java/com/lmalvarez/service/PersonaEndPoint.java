@@ -24,16 +24,25 @@ import jakarta.ws.rs.core.Response;
 @Path("/personas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ServiceEndPoint {
+public class PersonaEndPoint {
 
     private final PersonaDAO personaDAO = new PersonaDAO();
 
     @GET
     public Response consultarPersonas() throws Exception {
-        
         List<Persona> lstPersonas = new ArrayList<>();
         lstPersonas.addAll(personaDAO.consultarPersonas());
         return Utils.createResponseOk(lstPersonas);
+    }
+    
+    @GET
+    @Path("{dni}")
+    public Response consultarPersona(@PathParam("dni") String dni) throws Exception {
+        Persona persona = personaDAO.consultarPersonaByDNI(dni);
+        if (!dni.equalsIgnoreCase(persona.getDni())) {
+            return Utils.createResponseNotFound("DNI no existe");
+        }
+        return Utils.createResponseOk(persona);
     }
 
     @POST
@@ -51,6 +60,10 @@ public class ServiceEndPoint {
 
     @PUT
     public Response actualizarPersona(Persona persona) throws Exception {
+        Persona personaTmp = personaDAO.consultarPersonaByDNI(persona.getDni());
+        if (!persona.getDni().equalsIgnoreCase(personaTmp.getDni())) {
+            return Utils.createResponseNotFound("DNI no existe");
+        }
         boolean actualizado = personaDAO.actualizarPersona(persona);
         return actualizado ? Utils.createResponseOk() : Utils.createResponseNotModified("No fue posible la actualizacion");
     }

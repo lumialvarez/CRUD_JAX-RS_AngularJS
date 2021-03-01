@@ -41,4 +41,9 @@ public class Utils {
         RespuestaEstandar re = new RespuestaEstandar(Response.Status.CONFLICT.getStatusCode(), descripcion);
         return Response.status(Response.Status.CONFLICT.getStatusCode()).entity(re).build();
     }
+    
+    public static Response createResponseNotFound(String descripcion){
+        RespuestaEstandar re = new RespuestaEstandar(Response.Status.NOT_FOUND.getStatusCode(), descripcion);
+        return Response.status(Response.Status.NOT_FOUND.getStatusCode()).entity(re).build();
+    }
 }
