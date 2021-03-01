@@ -7,6 +7,7 @@ package com.lmalvarez.service;
 
 import com.lmalvarez.dao.PersonaDAO;
 import com.lmalvarez.model.Persona;
+import com.lmalvarez.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.ws.rs.Consumes;
@@ -24,40 +25,44 @@ import jakarta.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ServiceEndPoint {
+
     private final PersonaDAO personaDAO = new PersonaDAO();
 
     @GET
     public Response consultarPersonas() throws Exception {
+        
         List<Persona> lstPersonas = new ArrayList<>();
         lstPersonas.addAll(personaDAO.consultarPersonas());
-        return Response.ok(lstPersonas).build();
+        return Utils.createResponseOk(lstPersonas);
     }
 
     @POST
     public Response insertarPersona(Persona persona) throws Exception {
         Persona personaTmp = personaDAO.consultarPersonaByDNI(persona.getDni());
-        if(persona.getDni().equalsIgnoreCase(personaTmp.getDni())){
-            return Response.status(409).build();
+        if (persona.getDni().equalsIgnoreCase(personaTmp.getDni())) {
+            return Utils.createResponseConflict("DNI ya existe");
         }
-        
         boolean insertado = personaDAO.insertarPersona(persona);
-
-        return insertado ? Response.ok("Insertado", MediaType.TEXT_PLAIN).build() : Response.notModified().build();
+        if (!insertado) {
+            throw new Exception("Persona no creada");
+        }
+        return Utils.createResponseCreated("Creado correctactamente");
     }
 
     @PUT
     public Response actualizarPersona(Persona persona) throws Exception {
         boolean actualizado = personaDAO.actualizarPersona(persona);
-
-        return actualizado ? Response.ok("Actualizado", MediaType.TEXT_PLAIN).build() : Response.notModified().build();
+        return actualizado ? Utils.createResponseOk() : Utils.createResponseNotModified("No fue posible la actualizacion");
     }
 
     @DELETE
     @Path("{dni}")
     public Response eliminarPersona(@PathParam("dni") String dni) throws Exception {
         boolean eliminado = personaDAO.eliminarPersona(dni);
-
-        return eliminado ? Response.ok("Eliminado", MediaType.TEXT_PLAIN).build() : Response.notModified().build();
+        if (!eliminado) {
+            throw new Exception("Persona no eliminada");
+        }
+        return Utils.createResponseOk();
     }
 
 }

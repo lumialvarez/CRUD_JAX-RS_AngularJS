@@ -29,7 +29,9 @@ function personaCtrl($scope, $http, $window, $uibModal, $rootScope) {
                         $scope.data.lstPersonas = res.data;
                     }
                 }, function (error) {
-                    showBasicModalError($uibModal, 'Error', 'Surgió un problema al consultar la lista de personas!');
+                    console.log(error.data.descripcionCodigo);
+                    showBasicModalError($uibModal, 'Error', 'Surgió un problema al consultar la lista de personas!<br/>'+
+                            'Respuesta del servidor: "' + error.data.descripcionCodigo + '"');
                 });
     };
 

@@ -58,7 +58,7 @@ function showBasicModalSuccess($modal, titulo, contenido) {
 }
 
 function showBasicModalError($modal, titulo, contenido) {
-    $modal.open({
+    var modal = $modal.open({
         templateUrl: 'pages/common/modals/basicModalError.html',
         controller: 'modalCtrl',
         resolve: {
@@ -68,6 +68,13 @@ function showBasicModalError($modal, titulo, contenido) {
                     contenido: contenido};
             }
         }
+    });
+    modal.rendered.then(function () {
+        var textoJSON = {
+            texto: contenido
+        };
+        var textoEnHtml = textoJSON.texto.replace(/\n/g, "<br />");
+        document.getElementById("contenido-modal-texto").innerHTML = textoEnHtml;
     });
 }
 
